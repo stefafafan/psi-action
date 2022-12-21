@@ -5,13 +5,16 @@ inputs:
   url:
     required: true
     description: 'The URL to fetch PageSpeed Insights results.'
-  api-key:
+  key:
     required: true
     description: 'API Key for the PageSpeed Insights API.'
   strategy:
     required: false
     description: 'Strategy to fetch PageSpeed Insights results. "mobile" or "desktop".'
     default: 'desktop'
+outputs:
+  score:
+    description: 'Overall score of the url.'
 runs:
   using: 'node16'
   main: 'dist/index.js'
