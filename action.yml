@@ -1,11 +1,17 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'PageSpeed Insights Action'
+description: 'This is an action that outputs PageSpeed Insights results.'
+author: 'stefafafan'
 inputs:
-  milliseconds: # change this
+  url:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'The URL to fetch PageSpeed Insights results.'
+  api-key:
+    required: true
+    description: 'API Key for the PageSpeed Insights API.'
+  strategy:
+    required: false
+    description: 'Strategy to fetch PageSpeed Insights results. "mobile" or "desktop".'
+    default: 'desktop'
 runs:
   using: 'node16'
   main: 'dist/index.js'
