@@ -24,11 +24,11 @@ outputs:
   lcp:
     description: 'Largest Contentful Paint (LCP) in milliseconds.'
   si:
-    description: 'Speed Index in milliseconds.'
+    description: 'Speed Index score. Maximum is 100.'
   tti:
-    description: 'Time to Interactive in milliseconds.'
+    description: 'Time to Interactive score. Maximum is 100.'
   tbt:
-    description: 'Total Blocking Time in milliseconds.'
+    description: 'Total Blocking Time score. Maximum is 100.'
 runs:
   using: 'node16'
   main: 'dist/index.js'
