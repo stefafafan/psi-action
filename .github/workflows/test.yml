@@ -32,9 +32,9 @@ jobs:
           echo "FID: ${{ steps.psi.outputs.fid }}"
           echo "CLS: ${{ steps.psi.outputs.cls }}"
           echo "LCP: ${{ steps.psi.outputs.lcp }}"
-          echo "SI: ${{ steps.psi.outputs.si }}"
-          echo "TTI: ${{ steps.psi.outputs.tti }}"
-          echo "TBT: ${{ steps.psi.outputs.tbt }}"
+          echo "SI: ${{ steps.psi.outputs.speed-index }}"
+          echo "TTI: ${{ steps.psi.outputs.time-to-interactive }}"
+          echo "TBT: ${{ steps.psi.outputs.total-blocking-time }}"
   test-desktop:
     runs-on: ubuntu-latest
     steps:
@@ -51,6 +51,6 @@ jobs:
           echo "FID: ${{ steps.psi.outputs.fid }}"
           echo "CLS: ${{ steps.psi.outputs.cls }}"
           echo "LCP: ${{ steps.psi.outputs.lcp }}"
-          echo "SI: ${{ steps.psi.outputs.si }}"
-          echo "TTI: ${{ steps.psi.outputs.tti }}"
-          echo "TBT: ${{ steps.psi.outputs.tbt }}"
+          echo "SI: ${{ steps.psi.outputs.speed-index }}"
+          echo "TTI: ${{ steps.psi.outputs.time-to-interactive }}"
+          echo "TBT: ${{ steps.psi.outputs.total-blocking-time }}"
