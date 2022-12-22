@@ -16,23 +16,19 @@ outputs:
   score:
     description: 'Overall score of the url. Maximum is 100.'
   fcp:
-    description: 'First Contentful Paint (FCP).'
+    description: 'First Contentful Paint (FCP) in milliseconds.'
   fid:
-    description: 'First Input Delay (FID).'
+    description: 'First Input Delay (FID) in milliseconds.'
   cls:
-    description: 'Cumulative Layout Shift (CLS).'
+    description: 'Cumulative Layout Shift (CLS) score.'
   lcp:
-    description: 'Largest Contentful Paint (LCP).'
-  # si:
-  #   description: 'Speed Index in milliseconds.'
-  # tti:
-  #   description: 'Time to Interactive in milliseconds.'
-  # tbt:
-  #   description: 'Total Blocking Time in milliseconds.'
-  # inp:
-  #   description: 'Interaction to Next Paint (INP) in milliseconds.'
-  # ttfb:
-  #   description: 'Time to First Byte (TTFB) in milliseconds.'
+    description: 'Largest Contentful Paint (LCP) in milliseconds.'
+  si:
+    description: 'Speed Index in milliseconds.'
+  tti:
+    description: 'Time to Interactive in milliseconds.'
+  tbt:
+    description: 'Total Blocking Time in milliseconds.'
 runs:
   using: 'node16'
   main: 'dist/index.js'

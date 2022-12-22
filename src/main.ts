@@ -14,29 +14,29 @@ async function run(): Promise<void> {
       key,
       strategy
     })
-    const score: number = Math.round(
-      (data.data.lighthouseResult.categories.performance
-        .score as unknown as number) * 100
-    )
-    core.debug(`Score ${score}`)
-
+    const lighthouseResult = data.data.lighthouseResult
     const fieldData = data.data.loadingExperience.metrics
+
+    const score: number = Math.round(
+      (lighthouseResult.categories.performance.score as unknown as number) * 100
+    )
     const fcp = fieldData.FIRST_CONTENTFUL_PAINT_MS.percentile || 0
     const fid = fieldData.FIRST_INPUT_DELAY_MS.percentile || 0
     const cls = fieldData.CUMULATIVE_LAYOUT_SHIFT_SCORE.percentile || 0
     const lcp = fieldData.LARGEST_CONTENTFUL_PAINT_MS.percentile || 0
 
-    core.debug(`fieldData: ${fieldData}`)
-    core.debug(`fcp: ${fcp}`)
-    core.debug(`fid: ${fid}`)
-    core.debug(`cls: ${cls}`)
-    core.debug(`lcp: ${lcp}`)
+    const si = lighthouseResult.audits['speed-index'].score
+    const tti = lighthouseResult.audits['time-to-interactive'].score
+    const tbt = lighthouseResult.audits['total-blocking-time'].score
 
     core.setOutput('score', score)
     core.setOutput('fcp', fcp)
     core.setOutput('fid', fid)
     core.setOutput('cls', cls)
     core.setOutput('lcp', lcp)
+    core.setOutput('si', si)
+    core.setOutput('tti', tti)
+    core.setOutput('tbt', tbt)
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }

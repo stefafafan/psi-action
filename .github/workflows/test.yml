@@ -32,3 +32,6 @@ jobs:
           echo "FID: ${{ steps.psi.outputs.fid }}"
           echo "CLS: ${{ steps.psi.outputs.cls }}"
           echo "LCP: ${{ steps.psi.outputs.lcp }}"
+          echo "SI: ${{ steps.psi.outputs.si }}"
+          echo "TTI: ${{ steps.psi.outputs.tti }}"
+          echo "TBT: ${{ steps.psi.outputs.tbt }}"
