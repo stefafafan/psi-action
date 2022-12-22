@@ -18,12 +18,19 @@ async function run(): Promise<void> {
       (data.data.lighthouseResult.categories.performance
         .score as unknown as number) * 100
     )
+    core.debug(`Score ${score}`)
 
     const fieldData = data.data.loadingExperience.metrics
-    const fcp = fieldData.FIRST_CONTENTFUL_PAINT_MS?.percentile || 0
-    const fid = fieldData.FIRST_INPUT_DELAY_MS?.percentile || 0
-    const cls = fieldData.CUMULATIVE_LAYOUT_SHIFT_SCORE?.percentile || 0
-    const lcp = fieldData.LARGEST_CONTENTFUL_PAINT_MS?.percentile || 0
+    const fcp = fieldData.FIRST_CONTENTFUL_PAINT_MS.percentile || 0
+    const fid = fieldData.FIRST_INPUT_DELAY_MS.percentile || 0
+    const cls = fieldData.CUMULATIVE_LAYOUT_SHIFT_SCORE.percentile || 0
+    const lcp = fieldData.LARGEST_CONTENTFUL_PAINT_MS.percentile || 0
+
+    core.debug(`fieldData: ${fieldData}`)
+    core.debug(`fcp: ${fcp}`)
+    core.debug(`fid: ${fid}`)
+    core.debug(`cls: ${cls}`)
+    core.debug(`lcp: ${lcp}`)
 
     core.setOutput('score', score)
     core.setOutput('fcp', fcp)
