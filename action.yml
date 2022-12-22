@@ -23,11 +23,11 @@ outputs:
     description: 'Cumulative Layout Shift (CLS) score.'
   lcp:
     description: 'Largest Contentful Paint (LCP) in milliseconds.'
-  si:
+  speed-index:
     description: 'Speed Index score. Maximum is 100.'
-  tti:
+  time-to-interactive:
     description: 'Time to Interactive score. Maximum is 100.'
-  tbt:
+  total-blocking-time:
     description: 'Total Blocking Time score. Maximum is 100.'
 runs:
   using: 'node16'

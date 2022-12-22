@@ -40,9 +40,9 @@ async function run(): Promise<void> {
     core.setOutput('fid', fid)
     core.setOutput('cls', cls)
     core.setOutput('lcp', lcp)
-    core.setOutput('si', si)
-    core.setOutput('tti', tti)
-    core.setOutput('tbt', tbt)
+    core.setOutput('speed-index', si)
+    core.setOutput('time-to-interactive', tti)
+    core.setOutput('total-blocking-time', tbt)
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }
