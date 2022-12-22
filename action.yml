@@ -1,11 +1,34 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'PageSpeed Insights Action'
+description: 'This is an action that outputs PageSpeed Insights results.'
+author: 'stefafafan'
 inputs:
-  milliseconds: # change this
+  url:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'The URL to fetch PageSpeed Insights results.'
+  key:
+    required: true
+    description: 'API Key for the PageSpeed Insights API.'
+  strategy:
+    required: false
+    description: 'Strategy to fetch PageSpeed Insights results. "mobile" or "desktop".'
+    default: 'desktop'
+outputs:
+  score:
+    description: 'Overall score of the url. Maximum is 100.'
+  first-contentful-paint:
+    description: 'First Contentful Paint (FCP) in milliseconds.'
+  first-input-delay:
+    description: 'First Input Delay (FID) in milliseconds.'
+  cumulative-layout-shift:
+    description: 'Cumulative Layout Shift (CLS) score.'
+  largest-contentful-paint:
+    description: 'Largest Contentful Paint (LCP) in milliseconds.'
+  speed-index:
+    description: 'Speed Index score. Maximum is 100.'
+  time-to-interactive:
+    description: 'Time to Interactive score. Maximum is 100.'
+  total-blocking-time:
+    description: 'Total Blocking Time score. Maximum is 100.'
 runs:
   using: 'node16'
   main: 'dist/index.js'

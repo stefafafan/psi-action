@@ -15,10 +15,42 @@ jobs:
           npm install
       - run: |
           npm run all
-  test: # make sure the action works on a clean machine without building
+  test-mobile:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./
+      - id: psi
+        uses: ./
         with:
-          milliseconds: 1000
+          url: 'https://blog.stenyan.jp/'
+          key: ${{ secrets.API_KEY }}
+          strategy: 'mobile'
+      - name: Echo outputs
+        run: |
+          echo "Score: ${{ steps.psi.outputs.score }}"
+          echo "FCP: ${{ steps.psi.outputs.first-contentful-paint }}"
+          echo "FID: ${{ steps.psi.outputs.first-input-delay }}"
+          echo "CLS: ${{ steps.psi.outputs.cumulative-layout-shift }}"
+          echo "LCP: ${{ steps.psi.outputs.largest-contentful-paint }}"
+          echo "SI: ${{ steps.psi.outputs.speed-index }}"
+          echo "TTI: ${{ steps.psi.outputs.time-to-interactive }}"
+          echo "TBT: ${{ steps.psi.outputs.total-blocking-time }}"
+  test-desktop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - id: psi
+        uses: ./
+        with:
+          url: 'https://blog.stenyan.jp/'
+          key: ${{ secrets.API_KEY }}
+      - name: Echo outputs
+        run: |
+          echo "Score: ${{ steps.psi.outputs.score }}"
+          echo "FCP: ${{ steps.psi.outputs.first-contentful-paint }}"
+          echo "FID: ${{ steps.psi.outputs.first-input-delay }}"
+          echo "CLS: ${{ steps.psi.outputs.cumulative-layout-shift }}"
+          echo "LCP: ${{ steps.psi.outputs.largest-contentful-paint }}"
+          echo "SI: ${{ steps.psi.outputs.speed-index }}"
+          echo "TTI: ${{ steps.psi.outputs.time-to-interactive }}"
+          echo "TBT: ${{ steps.psi.outputs.total-blocking-time }}"
