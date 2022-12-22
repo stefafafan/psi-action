@@ -20,14 +20,14 @@ async function run(): Promise<void> {
     const score: number = Math.round(
       (lighthouseResult.categories.performance.score as unknown as number) * 100
     )
-    const fcp = fieldData.FIRST_CONTENTFUL_PAINT_MS.percentile || 0
-    const fid = fieldData.FIRST_INPUT_DELAY_MS.percentile || 0
-    const cls = fieldData.CUMULATIVE_LAYOUT_SHIFT_SCORE.percentile || 0
-    const lcp = fieldData.LARGEST_CONTENTFUL_PAINT_MS.percentile || 0
+    const fcp = fieldData.FIRST_CONTENTFUL_PAINT_MS?.percentile || 0
+    const fid = fieldData.FIRST_INPUT_DELAY_MS?.percentile || 0
+    const cls = fieldData.CUMULATIVE_LAYOUT_SHIFT_SCORE?.percentile || 0
+    const lcp = fieldData.LARGEST_CONTENTFUL_PAINT_MS?.percentile || 0
 
-    const si = lighthouseResult.audits['speed-index'].score
-    const tti = lighthouseResult.audits['time-to-interactive'].score
-    const tbt = lighthouseResult.audits['total-blocking-time'].score
+    const si = lighthouseResult.audits['speed-index']?.score || 0
+    const tti = lighthouseResult.audits['time-to-interactive']?.score || 0
+    const tbt = lighthouseResult.audits['total-blocking-time']?.score || 0
 
     core.setOutput('score', score)
     core.setOutput('fcp', fcp)
