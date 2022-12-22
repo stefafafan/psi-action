@@ -15,7 +15,7 @@ jobs:
           npm install
       - run: |
           npm run all
-  test: # make sure the action works on a clean machine without building
+  test-mobile:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +24,26 @@ jobs:
         with:
           url: 'https://blog.stenyan.jp/'
           key: ${{ secrets.API_KEY }}
-          strategy: 'desktop'
+          strategy: 'mobile'
+      - name: Echo outputs
+        run: |
+          echo "Score: ${{ steps.psi.outputs.score }}"
+          echo "FCP: ${{ steps.psi.outputs.fcp }}"
+          echo "FID: ${{ steps.psi.outputs.fid }}"
+          echo "CLS: ${{ steps.psi.outputs.cls }}"
+          echo "LCP: ${{ steps.psi.outputs.lcp }}"
+          echo "SI: ${{ steps.psi.outputs.si }}"
+          echo "TTI: ${{ steps.psi.outputs.tti }}"
+          echo "TBT: ${{ steps.psi.outputs.tbt }}"
+  test-desktop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - id: psi
+        uses: ./
+        with:
+          url: 'https://blog.stenyan.jp/'
+          key: ${{ secrets.API_KEY }}
       - name: Echo outputs
         run: |
           echo "Score: ${{ steps.psi.outputs.score }}"
