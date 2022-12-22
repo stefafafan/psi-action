@@ -25,4 +25,10 @@ jobs:
           url: 'https://blog.stenyan.jp/'
           key: ${{ secrets.API_KEY }}
           strategy: 'desktop'
-      - run: echo ${{ steps.psi.outputs.score }}
+      - name: Echo outputs
+        run: |
+          echo "Score: ${{ steps.psi.outputs.score }}"
+          echo "FCP: ${{ steps.psi.outputs.fcp }}"
+          echo "FID: ${{ steps.psi.outputs.fid }}"
+          echo "CLS: ${{ steps.psi.outputs.cls }}"
+          echo "LCP: ${{ steps.psi.outputs.lcp }}"

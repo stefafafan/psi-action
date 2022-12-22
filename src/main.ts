@@ -14,10 +14,22 @@ async function run(): Promise<void> {
       key,
       strategy
     })
-    core.setOutput(
-      'score',
-      data.data.lighthouseResult.categories.performance.score
+    const score: number = Math.round(
+      (data.data.lighthouseResult.categories.performance
+        .score as unknown as number) * 100
     )
+
+    const fieldData = data.data.loadingExperience.metrics
+    const fcp = fieldData.FIRST_CONTENTFUL_PAINT_MS?.percentile || 0
+    const fid = fieldData.FIRST_INPUT_DELAY_MS?.percentile || 0
+    const cls = fieldData.CUMULATIVE_LAYOUT_SHIFT_SCORE?.percentile || 0
+    const lcp = fieldData.LARGEST_CONTENTFUL_PAINT_MS?.percentile || 0
+
+    core.setOutput('score', score)
+    core.setOutput('fcp', fcp)
+    core.setOutput('fid', fid)
+    core.setOutput('cls', cls)
+    core.setOutput('lcp', lcp)
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }
