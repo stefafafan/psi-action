@@ -15,13 +15,13 @@ inputs:
 outputs:
   score:
     description: 'Overall score of the url. Maximum is 100.'
-  fcp:
+  first-contentful-paint:
     description: 'First Contentful Paint (FCP) in milliseconds.'
-  fid:
+  first-input-delay:
     description: 'First Input Delay (FID) in milliseconds.'
-  cls:
+  cumulative-layout-shift:
     description: 'Cumulative Layout Shift (CLS) score.'
-  lcp:
+  largest-contentful-paint:
     description: 'Largest Contentful Paint (LCP) in milliseconds.'
   speed-index:
     description: 'Speed Index score. Maximum is 100.'

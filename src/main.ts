@@ -36,10 +36,10 @@ async function run(): Promise<void> {
         ?.score as unknown as number) * 100 || 0
 
     core.setOutput('score', score)
-    core.setOutput('fcp', fcp)
-    core.setOutput('fid', fid)
-    core.setOutput('cls', cls)
-    core.setOutput('lcp', lcp)
+    core.setOutput('first-contentful-paint', fcp)
+    core.setOutput('first-input-delay', fid)
+    core.setOutput('cumulative-layout-shift', cls)
+    core.setOutput('largest-contentful-paint', lcp)
     core.setOutput('speed-index', si)
     core.setOutput('time-to-interactive', tti)
     core.setOutput('total-blocking-time', tbt)

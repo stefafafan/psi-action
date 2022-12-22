@@ -28,10 +28,10 @@ jobs:
       - name: Echo outputs
         run: |
           echo "Score: ${{ steps.psi.outputs.score }}"
-          echo "FCP: ${{ steps.psi.outputs.fcp }}"
-          echo "FID: ${{ steps.psi.outputs.fid }}"
-          echo "CLS: ${{ steps.psi.outputs.cls }}"
-          echo "LCP: ${{ steps.psi.outputs.lcp }}"
+          echo "FCP: ${{ steps.psi.outputs.first-contentful-paint }}"
+          echo "FID: ${{ steps.psi.outputs.first-input-delay }}"
+          echo "CLS: ${{ steps.psi.outputs.cumulative-layout-shift }}"
+          echo "LCP: ${{ steps.psi.outputs.largest-contentful-paint }}"
           echo "SI: ${{ steps.psi.outputs.speed-index }}"
           echo "TTI: ${{ steps.psi.outputs.time-to-interactive }}"
           echo "TBT: ${{ steps.psi.outputs.total-blocking-time }}"
@@ -47,10 +47,10 @@ jobs:
       - name: Echo outputs
         run: |
           echo "Score: ${{ steps.psi.outputs.score }}"
-          echo "FCP: ${{ steps.psi.outputs.fcp }}"
-          echo "FID: ${{ steps.psi.outputs.fid }}"
-          echo "CLS: ${{ steps.psi.outputs.cls }}"
-          echo "LCP: ${{ steps.psi.outputs.lcp }}"
+          echo "FCP: ${{ steps.psi.outputs.first-contentful-paint }}"
+          echo "FID: ${{ steps.psi.outputs.first-input-delay }}"
+          echo "CLS: ${{ steps.psi.outputs.cumulative-layout-shift }}"
+          echo "LCP: ${{ steps.psi.outputs.largest-contentful-paint }}"
           echo "SI: ${{ steps.psi.outputs.speed-index }}"
           echo "TTI: ${{ steps.psi.outputs.time-to-interactive }}"
           echo "TBT: ${{ steps.psi.outputs.total-blocking-time }}"
