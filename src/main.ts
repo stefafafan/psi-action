@@ -20,10 +20,18 @@ async function run(): Promise<void> {
     const score: number = Math.round(
       (lighthouseResult.categories.performance.score as unknown as number) * 100
     )
-    // const fcp = fieldData.FIRST_CONTENTFUL_PAINT_MS?.percentile || 0
-    const fid = fieldData.FIRST_INPUT_DELAY_MS?.percentile || 0
-    const cls = fieldData.CUMULATIVE_LAYOUT_SHIFT_SCORE?.percentile || 0
-    const lcp = fieldData.LARGEST_CONTENTFUL_PAINT_MS?.percentile || 0
+    const fcp = fieldData.FIRST_CONTENTFUL_PAINT_MS
+      ? fieldData.FIRST_CONTENTFUL_PAINT_MS.percentile
+      : 0
+    const fid = fieldData.FIRST_INPUT_DELAY_MS
+      ? fieldData.FIRST_INPUT_DELAY_MS.percentile
+      : 0
+    const cls = fieldData.CUMULATIVE_LAYOUT_SHIFT_SCORE
+      ? fieldData.CUMULATIVE_LAYOUT_SHIFT_SCORE.percentile
+      : 0
+    const lcp = fieldData.LARGEST_CONTENTFUL_PAINT_MS
+      ? fieldData.LARGEST_CONTENTFUL_PAINT_MS.percentile
+      : 0
 
     const si =
       (lighthouseResult.audits['speed-index']?.score as unknown as number) *
@@ -36,7 +44,7 @@ async function run(): Promise<void> {
         ?.score as unknown as number) * 100 || 0
 
     core.setOutput('score', score)
-    // core.setOutput('first-contentful-paint', fcp)
+    core.setOutput('first-contentful-paint', fcp)
     core.setOutput('first-input-delay', fid)
     core.setOutput('cumulative-layout-shift', cls)
     core.setOutput('largest-contentful-paint', lcp)

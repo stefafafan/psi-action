@@ -28,7 +28,7 @@ jobs:
       - name: Echo outputs
         run: |
           echo "Score: ${{ steps.psi.outputs.score }}"
-          # echo "FCP: ${{ steps.psi.outputs.first-contentful-paint }}"
+          echo "FCP: ${{ steps.psi.outputs.first-contentful-paint }}"
           echo "FID: ${{ steps.psi.outputs.first-input-delay }}"
           echo "CLS: ${{ steps.psi.outputs.cumulative-layout-shift }}"
           echo "LCP: ${{ steps.psi.outputs.largest-contentful-paint }}"
@@ -47,7 +47,7 @@ jobs:
       - name: Echo outputs
         run: |
           echo "Score: ${{ steps.psi.outputs.score }}"
-          # echo "FCP: ${{ steps.psi.outputs.first-contentful-paint }}"
+          echo "FCP: ${{ steps.psi.outputs.first-contentful-paint }}"
           echo "FID: ${{ steps.psi.outputs.first-input-delay }}"
           echo "CLS: ${{ steps.psi.outputs.cumulative-layout-shift }}"
           echo "LCP: ${{ steps.psi.outputs.largest-contentful-paint }}"
