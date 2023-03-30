@@ -32,7 +32,7 @@
     "psi": "^4.1.0"
   },
   "devDependencies": {
-    "@types/node": "^16.18.21",
+    "@types/node": "^16.18.23",
     "@types/psi": "^4.1.2",
     "@typescript-eslint/parser": "^5.57.0",
     "@vercel/ncc": "^0.36.1",
