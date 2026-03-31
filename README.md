@@ -1,4 +1,5 @@
-<a href="https://github.com/stefafafan/psi-action/actions"><img alt="psi-action status" src="https://github.com/stefafafan/psi-action/workflows/build-test/badge.svg"></a>
+> [!WARNING]
+> This repo is no longer maintained.
 
 # psi-action
 psi-action is a GitHub Action that outputs [PageSpeed Insights](https://pagespeed.web.dev/) values for the next steps of a workflow. This action is similar to [JakePartusch/psi-action](https://github.com/JakePartusch/psi-action), but different in that this actually outputs the values for further use in the workflow.
